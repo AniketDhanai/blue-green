@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green
+  namespace: webapps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: green
+      version: green
+  template:
+    metadata:
+      labels:
+        app: green
+        version: green
+    spec:
+      containers:
+      - name: green
+        image: docker.io/nginx:1.21 # Replace with the appropriate image version for the green environment
+        ports:
+        - containerPort: 8080
