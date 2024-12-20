@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue
+  namespace: webapps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blue
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: blue
+        version: blue
+    spec:
+      containers:
+      - name: blueapp
+        image: docker.io/httpd:2.4 # Replace with the appropriate image version for the blue environment
+        ports:
+        - containerPort: 8080
